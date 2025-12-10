@@ -1,4 +1,3 @@
-#include <charconv>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -13,6 +12,7 @@ bool fileExists(const std::string& filename) {
 int main() {
     string filepath("input");
     int Part1_result = 0;
+    long Part2_result = 0;
 
     if (fileExists(filepath)) {
         std::cout << "Found file!" << std::endl;
@@ -63,8 +63,33 @@ int main() {
             }
         }
         Part1_result += stoi(number);
+
+        string result;
+        int indent = 0;
+        for(int i = 12; i > 0; i--){
+            for(int j = 9; j > 0; j--){
+                string compare = result;
+                for(int k = indent; k < row.size() - (i -1); k++){
+                    if((int)row[k] - '0' ==  j){
+                        result += to_string(j);
+                        std::cout << "found: " << row[k] << " at position: " << k << std::endl;
+                        indent = k + 1;
+                        break;
+                    }
+                }
+                if(compare.size() != result.size()){
+                    break;
+                }
+            }
+            
+        }
+        Part2_result += stol(result);
+    
     }
 
     // 17085
     std::cout << "Part 1: " << Part1_result << std::endl;
+
+    //169408143086082
+    std::cout << "Part 2: " << Part2_result << std::endl;
 }
