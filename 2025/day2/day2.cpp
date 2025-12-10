@@ -91,7 +91,6 @@ int main() {
                 for(int j=1; j <= floor(id.size()/2); j++){
                     if(id.size() % j == 0 and repeatpattern(j, id)){
                         totalday2 += i;
-                        std::cout << "YAAAS" <<i << std::endl;
                         break;
                     
                 }
@@ -101,11 +100,10 @@ int main() {
 
     using namespace std::chrono_literals;
     //38437576669
-    std::cout << "Day 1 result: " << totalday1 << std::endl;
+    std::cout << "Part 1 result: " << totalday1 << std::endl;
                                             
     //49046150754
-    std::cout << "Day 2 result: " << totalday2 << std::endl;
-
+    std::cout << "Part 2 result: " << totalday2 << std::endl;
 
     auto endTime = high_resolution_clock::now();
     auto ms_int = duration_cast<milliseconds>(endTime - startTime);
